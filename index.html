@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Ordering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loginPage" class="login-box">
+    <h2>WELCOME TO CHICKEN'S 🍗🍛</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button class="login-btn" onclick="login()">Login</button>
+    <div id="loginError" class="error-text"></div>
+</div>
+<div id="mainPage" class="hidden">
+<header>
+    <h2>Online Food Ordering</h2>
+    <div class="top-buttons">
+        <button onclick="goHome()">Home</button>
+        <button onclick="showProfile()">Profile</button>
+        <button onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+</header>
+<div class="food-container">
+    <div class="food-item">
+        <div id="qty-Chicken-Pizza" class="qty-badge">0</div>
+        <img src="pizza.png">
+        <h3> Chicken Pizza</h3>
+        <p>₹200</p>
+        <button class="order-btn" onclick="addToCart('Chicken Pizza',200, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Burger" class="qty-badge">0</div>
+        <img src="burger.png">
+        <h3>Burger</h3>
+        <p>₹120</p>
+        <button class="order-btn" onclick="addToCart('Burger',120, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Biryani" class="qty-badge">0</div>
+        <img src="biriyani.png">
+        <h3>Biryani</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Biryani',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-French-Fries" class="qty-badge">0</div>
+        <img src="fries.png">
+        <h3>French Fries</h3>
+        <p>₹90</p>
+        <button class="order-btn" onclick="addToCart('French Fries',90, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Kabab" class="qty-badge">0</div>
+        <img src="kabab.png">
+        <h3>Kabab</h3>
+        <p>₹180</p>
+        <button class="order-btn" onclick="addToCart('Kabab',180, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-65" class="qty-badge">0</div>
+        <img src="65.png">
+        <h3>Chicken 65</h3>
+        <p>₹220</p>
+        <button class="order-btn" onclick="addToCart('Chicken 65',220, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Gobi-Manchurian" class="qty-badge">0</div>
+        <img src="gobi.png">
+        <h3>Gobi Manchurian</h3>
+        <p>₹150</p>
+        <button class="order-btn" onclick="addToCart('Gobi Manchurian',150, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Egg-Biriyani" class="qty-badge">0</div>
+        <img src="eggg.png">
+        <h3>Egg Biriyani</h3>
+        <p>₹200</p>
+        <button class="order-btn" onclick="addToCart('Egg Biriyani',200, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Apollo-Fish" class="qty-badge">0</div>
+        <img src="apollo.png">
+        <h3>Apollo Fish</h3>
+        <p>₹190</p>
+        <button class="order-btn" onclick="addToCart('Apollo Fish',190, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Butter-Chicken" class="qty-badge">0</div>
+        <img src="butter.png">
+        <h3>Butter Chicken</h3>
+        <p>₹180</p>
+        <button class="order-btn" onclick="addToCart('Butter Chicken',180, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Tikka-Masala" class="qty-badge">0</div>
+        <img src="tikka.png">
+        <h3>Chicken Tikka Masala</h3>
+        <p>₹190</p>
+        <button class="order-btn" onclick="addToCart('Chicken Tikka Masala',190, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Egg-Curry" class="qty-badge">0</div>
+        <img src="egg.png">
+        <h3>Egg Curry</h3>
+        <p>₹190</p>
+        <button class="order-btn" onclick="addToCart('Egg Curry',190, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Prawn" class="qty-badge">0</div>
+        <img src="prawn.png">
+        <h3>Prawn</h3>
+        <p>₹280</p>
+        <button class="order-btn" onclick="addToCart('Prawn',280, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Paneer-Butter-Masala" class="qty-badge">0</div>
+        <img src="paneer.png">
+        <h3>Paneer Butter Masala</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Paneer Butter Masala',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Tanduri-Full" class="qty-badge">0</div>
+        <img src="full.png">
+        <h3>Tanduri Full</h3>
+        <p>₹520</p>
+        <button class="order-btn" onclick="addToCart('Tanduri Full',520, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Majestic" class="qty-badge">0</div>
+        <img src="ma.png">
+        <h3>Chicken Majestic</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Chicken Majestic',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Egg-Fride-Rice" class="qty-badge">0</div>
+        <img src="rice.png">
+        <h3>Egg Fride Rice</h3>
+        <p>₹200</p>
+        <button class="order-btn" onclick="addToCart('Egg Fride Rice',200, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Lollipop" class="qty-badge">0</div>
+        <img src="lollipop.png">
+        <h3>Chicken Lollipop</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Chicken Lollipop',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Afghan-Chicken" class="qty-badge">0</div>
+        <img src="afghan.png">
+        <h3>Afghan Chicken</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Afghan Chicken',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Haleem" class="qty-badge">0</div>
+        <img src="haleem.png">
+        <h3>Haleem</h3>
+        <p>₹150</p>
+        <button class="order-btn" onclick="addToCart('Chicken Haleem',150, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Drumstick" class="qty-badge">0</div>
+        <img src="drum.png">
+        <h3>Chicken Drumstick</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Chicken Drumstick',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Fried-Chicken" class="qty-badge">0</div>
+        <img src="c fried.png">
+        <h3>Fried Chicken</h3>
+        <p>₹350</p>
+        <button class="order-btn" onclick="addToCart('Fried Chicken',350, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Dosa" class="qty-badge">0</div>
+        <img src="dosa.png">
+        <h3>Chicken Dosa</h3>
+        <p>₹120</p>
+        <button class="order-btn" onclick="addToCart('Chicken Dosa',120, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Idly" class="qty-badge">0</div>
+        <img src="idly.png">
+        <h3>Chicken Idly</h3>
+        <p>₹100</p>
+        <button class="order-btn" onclick="addToCart('Chicken Idly',100, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Grill-Chicken" class="qty-badge">0</div>
+        <img src="grill.png">
+        <h3>Grill Chicken</h3>
+        <p>450</p>
+        <button class="order-btn" onclick="addToCart('Grill Chicken',450, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Hyderabadhi-Biriyani" class="qty-badge">0</div>
+        <img src="hyd.png">
+        <h3>Hyderabadhi Biriyani</h3>
+        <p>₹270</p>
+        <button class="order-btn" onclick="addToCart('Hyderabadhi Biriyani',270, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Soup" class="qty-badge">0</div>
+        <img src="soup.png">
+        <h3>Chicken Soup</h3>
+        <p>₹150</p>
+        <button class="order-btn" onclick="addToCart('Chicken Soup',150, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Shawarma" class="qty-badge">0</div>
+        <img src="shawarma.png">
+        <h3>Chicken Shawarma</h3>
+        <p>₹150</p>
+        <button class="order-btn" onclick="addToCart('Chicken Shawarma',150, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Thokku-Biriyani" class="qty-badge">0</div>
+        <img src="thokku.png">
+        <h3>Chicken Thokku Biriyani</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Chicken Thokku Biriyani',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Noodles" class="qty-badge">0</div>
+        <img src="noodles.png">
+        <h3> Chicken Noodles</h3>
+        <p>₹150</p>
+        <button class="order-btn" onclick="addToCart('Chicken Noodles',150, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Sahee-Paneer" class="qty-badge">0</div>
+        <img src="sahee.png">
+        <h3>Sahee Paneer</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Sahee Paneer',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-BBQ-Chicken" class="qty-badge">0</div>
+        <img src="bbq.png">
+        <h3>BBQ Chicken</h3>
+        <p>₹260</p>
+        <button class="order-btn" onclick="addToCart('BBQ Chicken',260, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Roasted-Chicken" class="qty-badge">0</div>
+        <img src="roast.png">
+        <h3>Roasted Chicken </h3>
+        <p>₹350</p>
+        <button class="order-btn" onclick="addToCart('Roasted Chicken',350, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Parotta" class="qty-badge">0</div>
+        <img src="parotta.png">
+        <h3>Chicken Parotta </h3>
+        <p>₹90</p>
+        <button class="order-btn" onclick="addToCart('Chicken Parotta',90, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-BBQ-Chicken-Tikka" class="qty-badge">0</div>
+        <img src="bbq masala.png">
+        <h3>BBQ Chicken Tikka </h3>
+        <p>₹280</p>
+        <button class="order-btn" onclick="addToCart('BBQ Chicken Tikka',280, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Fried-Rice" class="qty-badge">0</div>
+        <img src="rice.png">
+        <h3>Chicken Fried Rice</h3>
+        <p>₹190</p>
+        <button class="order-btn" onclick="addToCart('Chicken Fried Rice',190, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Dragon-Chicken" class="qty-badge">0</div>
+        <img src="dragon.png">
+        <h3>Dragon Chicken</h3>
+        <p>₹230</p>
+        <button class="order-btn" onclick="addToCart('Dragon Chicken',230, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Pepper-Chicken" class="qty-badge">0</div>
+        <img src="pepper.png">
+        <h3>Pepper Chicken</h3>
+        <p>₹240</p>
+        <button class="order-btn" onclick="addToCart('Pepper Chicken',240, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chilli-Chicken" class="qty-badge">0</div>
+        <img src="chilli.png">
+        <h3>Chilli Chicken</h3>
+        <p>₹210</p>
+        <button class="order-btn" onclick="addToCart('Chilli Chicken',210, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Fish" class="qty-badge">0</div>
+        <img src="fish.png">
+        <h3>Fish </h3>
+        <p>₹260</p>
+        <button class="order-btn" onclick="addToCart('Fish',260, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Dum-Biryani" class="qty-badge">0</div>
+        <img src="biriyani.png">
+        <h3>Dum Biryani</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Dum Biryani',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Fry-Biryani" class="qty-badge">0</div>
+        <img src="fry.png">
+        <h3>Fry Biryani</h3>
+        <p>₹240</p>
+        <button class="order-btn" onclick="addToCart('Fry Biryani',240, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Roll" class="qty-badge">0</div>
+        <img src="roll.png">
+        <h3>Chicken Roll</h3>
+        <p>₹120</p>
+        <button class="order-btn" onclick="addToCart('Chicken Roll',120, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Wings" class="qty-badge">0</div>
+        <img src="wings.png">
+        <h3>Chicken Wings</h3>
+        <p>₹220</p>
+        <button class="order-btn" onclick="addToCart('Chicken Wings',220, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Mughlai-Chicken" class="qty-badge">0</div>
+        <img src="mu.png">
+        <h3>Mughlai Chicken</h3>
+        <p>₹250</p>
+        <button class="order-btn" onclick="addToCart('Mughlai Chicken',250, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Chicken-Curry" class="qty-badge">0</div>
+        <img src="curry.png">
+        <h3>Chicken Curry</h3>
+        <p>₹200</p>
+        <button class="order-btn" onclick="addToCart('Chicken Curry',200, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Butter-Naan" class="qty-badge">0</div>
+        <img src="roti.png">
+        <h3>Butter Naan</h3>
+        <p>₹60</p>
+        <button class="order-btn" onclick="addToCart('Butter Naan',60, event)">Order</button>
+    </div>
+
+    <div class="food-item">
+        <div id="qty-Fried-Chicken-SP" class="qty-badge">0</div>
+        <img src="fried.png">
+        <h3>Fried Chicken</h3>
+        <p>₹220</p>
+        <button class="order-btn" onclick="addToCart('Fried Chicken SP',220, event)">Order</button>
+    </div>
+</div>
+</div>
+<div id="profilePage" class="hidden center">
+    <div class="profile-box">
+        <h2>User Profile</h2>
+        <p style="color:blue">Name: Suswanth Reddy</p>
+        <p style="color:blue">Email: suswanth*******@gmail.com</p>
+        <p style="color:blue">Number: 8965794289</p>
+        <p style="color:blue">PhonePe: 8451849@ybl</p>
+        <p style="color:blue">PayTm: Suswanthreddy@Axl</p>
+        <p style="color:blue">GPay: 7954862544@SBI</p>
+        <p style="color:blue">Amrita clg <br> vengal village 689568 </p>
+        <button class="order-btn" onclick="goHome()">🔙 Back to Home page</button>
+    </div>
+</div>
+
+<div id="cartPage" class="hidden center">
+<div class="cart-box">
+    <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <h3>Total: ₹<span id="totalAmount">0</span></h3>
+        <button class="order-btn" onclick="showPayment()">
+        Place Order
+        </button>
+<br><br>
+<button onclick="goHome()">🔙 Back to Home page</button>
+</div>
+</div>
+
+<div id="paymentPage" class="hidden center">
+    <h2>Delivery Address</h2>
+    <div class="address-container">
+        <textarea id="manualAddress" placeholder="Enter your full address manually..."></textarea>
+        <br>
+        <button class="loc-btn" onclick="getLocation()">📍 Get Current Location</button>
+        <p id="locationStatus" style="font-size: 14px; color: #555;"></p>
+    </div>
+
+    <h2>Select Payment Method</h2>
+    <div class="payment-methods">
+        <img src="phonepay.png" class="pay-logo" onclick="pay('PhonePe')">
+        <img src="gpay.png" class="pay-logo" onclick="pay('Google Pay')">
+        <img src="paytm.png" class="pay-logo" onclick="pay('Paytm')">
+    </div>
+<br><br>
+    <button onclick="showCart()">🔙 Back to Cart</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
